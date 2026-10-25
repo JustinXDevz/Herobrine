@@ -1,0 +1,39 @@
+# Name of the Minecraft account whose skin is used for Herobrine's head
+skin-name: Herobrine
+
+# How often (seconds) the plugin rolls the dice for each player
+check-interval-seconds: 30
+
+# Chance (0.0 - 1.0) per roll that Herobrine appears for a player
+appear-chance: 0.05
+
+# He appears between these distances (blocks) from the player
+min-distance: 20
+max-distance: 32
+
+# He vanishes if the player gets this close
+vanish-distance: 8
+
+# Seconds of staring at him before he vanishes
+stare-seconds: 2
+
+# Max seconds he lingers if never noticed
+max-lifetime-seconds: 60
+
+# Fake server messages. MiniMessage formatting is supported.
+# "join" is rolled when he appears, "leave" is rolled when he vanishes.
+fake-messages:
+  join:
+    enabled: true
+    chance: 0.15
+    message: "<yellow>Herobrine joined the game"
+  leave:
+    enabled: true
+    chance: 0.15
+    message: "<yellow>Herobrine left the game"
+
+# Harmless lightning effect when he vanishes
+lightning-on-vanish: true
+
+# Only haunt at night?
+night-only: false

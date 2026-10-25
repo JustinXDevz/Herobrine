@@ -1,0 +1,13 @@
+name: Herobrine
+version: 1.0.0
+main: dev.herobrine.HerobrinePlugin
+api-version: "1.21"
+description: Herobrine haunts your server.
+commands:
+  herobrine:
+    description: Control Herobrine
+    usage: /herobrine <summon [player]|fakejoin|fakeleave|clear|reload>
+    permission: herobrine.admin
+permissions:
+  herobrine.admin:
+    default: op

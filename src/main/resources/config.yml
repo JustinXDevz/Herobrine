@@ -1,27 +1,72 @@
-# Name of the Minecraft account whose skin is used for Herobrine's head
+# Name of the Minecraft account whose skin Herobrine uses
 skin-name: Herobrine
 
 # How often (seconds) the plugin rolls the dice for each player
 check-interval-seconds: 30
 
-# Chance (0.0 - 1.0) per roll that Herobrine appears for a player
+# Chance (0.0 - 1.0) per roll that something happens for a player
 appear-chance: 0.05
 
-# He appears between these distances (blocks) from the player
+# Only haunt at night?
+night-only: false
+
+# When something happens, which event? Higher number = more likely. 0 = never.
+events:
+  stare: 50
+  walk: 25
+  jumpscare: 15
+  sign: 10
+
+# ---------- STARE: he stands far away and watches ----------
 min-distance: 20
 max-distance: 32
-
 # He vanishes if the player gets this close
 vanish-distance: 8
-
 # Seconds of staring at him before he vanishes
 stare-seconds: 2
-
 # Max seconds he lingers if never noticed
 max-lifetime-seconds: 60
+# Harmless lightning effect when a staring Herobrine vanishes
+lightning-on-vanish: true
 
-# Fake server messages. MiniMessage formatting is supported.
-# "join" is rolled when he appears, "leave" is rolled when he vanishes.
+# ---------- WALK: he walks across your view, then vanishes ----------
+walk:
+  min-distance: 15
+  max-distance: 24
+  # How far he walks (blocks)
+  distance: 18
+  # 1.0 = normal walking speed
+  speed: 1.0
+  # He vanishes after this many seconds even if he hasn't arrived
+  max-seconds: 12
+
+# ---------- JUMPSCARE: he appears right in front of you ----------
+jumpscare:
+  # Blocks in front of the player
+  distance: 4.0
+  # How long he stays (20 ticks = 1 second)
+  duration-ticks: 30
+  # Minecraft sound key
+  sound: "entity.enderman.scream"
+  # Screen darkness in ticks (0 = off)
+  darkness-ticks: 40
+
+# ---------- SIGN: a creepy sign appears on open natural ground ----------
+# Only placed in empty air on grass/dirt/sand/etc. in the open. Never replaces or breaks blocks.
+sign:
+  # Seconds until the sign is removed again (0 = leave it forever)
+  remove-after-seconds: 300
+  # Use | to split lines (max 4 lines per sign)
+  messages:
+    - "I SEE YOU"
+    - "TURN AROUND"
+    - "YOU ARE|NOT ALONE"
+    - "HE IS|WATCHING"
+    - "DON'T LOOK|BEHIND YOU"
+    - "I WAS HERE"
+
+# ---------- Fake server messages (MiniMessage formatting is supported) ----------
+# "join" is rolled when he appears (stare/walk), "leave" when he vanishes.
 fake-messages:
   join:
     enabled: true
@@ -31,9 +76,3 @@ fake-messages:
     enabled: true
     chance: 0.15
     message: "<yellow>Herobrine left the game"
-
-# Harmless lightning effect when he vanishes
-lightning-on-vanish: true
-
-# Only haunt at night?
-night-only: false
